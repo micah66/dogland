@@ -4,7 +4,7 @@ import { clsx } from 'clsx'
 import { cva, type VariantProps } from 'cva'
 
 import { IconComponent } from '@/components/shared/Icon'
-import cn from '@/utils/cn'
+import { cn } from '@/lib/utils'
 
 const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
   variants: {
