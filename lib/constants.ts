@@ -8,7 +8,7 @@ export const linkMap = {
   '/training': { icon: Icons.Barbell, label: 'Training' },
   '/grooming': { icon: Icons.HairDryer, label: 'Grooming' },
   '/store': { icon: Icons.Storefront, label: 'Store' },
-  '/sign-in': { icon: Icons.SignIn, label: 'Sign In / Up' },
+  '/sign-up': { icon: Icons.SignIn, label: 'Sign In / Up' },
   '/sign-out': { icon: Icons.SignOut, label: 'Sign Out' },
   '/settings': { icon: Icons.Cog, label: 'Settings' },
 }
