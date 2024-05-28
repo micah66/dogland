@@ -1,6 +1,13 @@
 import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 import Icons from './shared/Icon'
 import NavItem from './NavItem'
@@ -23,10 +30,6 @@ const links: Links[] = [
     id: 2,
     links: ['/kenneling', '/training', '/grooming', '/store'],
   },
-  {
-    id: 3,
-    links: ['/sign-in'],
-  },
 ]
 
 const NavBar: Component = () => {
@@ -45,25 +48,41 @@ const NavBar: Component = () => {
               </Link>
             </div>
           </li>
-          {links.map((section, i) => {
+          {links.map((section) => {
             return (
               <Fragment key={section.id}>
-                {!!Boolean(i) && <Separator />}
                 {section.links.map((link) => {
-                  const { icon: Icon, label } = linkMap[link]
                   return (
                     <li key={link}>
-                      <NavItem
-                        href={link}
-                        label={label}
-                        icon={<Icon width="100%" />}
-                      />
+                      <Link className="flex grow items-center" href={link}>
+                        <NavItem link={link} />
+                      </Link>
                     </li>
                   )
                 })}
+                <Separator />
               </Fragment>
             )
           })}
+          <SignedOut>
+            <li>
+              <SignInButton>
+                <NavItem link="/sign-up" />
+              </SignInButton>
+            </li>
+          </SignedOut>
+          <SignedIn>
+            <li>
+              <Link href="/settings">
+                <NavItem link="/settings" />
+              </Link>
+            </li>
+            <li>
+              <SignOutButton redirectUrl="/">
+                <NavItem link="/sign-out" />
+              </SignOutButton>
+            </li>
+          </SignedIn>
         </ul>
       </nav>
       <div className="github">
