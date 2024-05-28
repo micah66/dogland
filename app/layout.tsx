@@ -2,7 +2,12 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 
-const roboto = Roboto({ weight: ['500'] })
+import NavBar from '@/components/NavBar'
+
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Dogland',
@@ -16,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <div className="flex h-screen w-screen">
+          <NavBar />
+          <div className="content grow">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
