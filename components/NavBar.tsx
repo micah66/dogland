@@ -34,11 +34,11 @@ const links: Links[] = [
 
 const NavBar: Component = () => {
   return (
-    <div className="flex h-screen w-[220px] flex-col items-center justify-between py-12">
+    <div className="flex h-screen w-[220px] flex-col items-center justify-between py-12 shadow-md shadow-gray-300">
       <nav className="w-full">
-        <ul>
+        <ul className="flex flex-col gap-4 ">
           <li className="mb-6">
-            <div className="mx-6">
+            <div className="mx-3">
               <Link href="/">
                 <Image
                   alt="dogland logo"
@@ -60,12 +60,14 @@ const NavBar: Component = () => {
                     </li>
                   )
                 })}
-                <Separator />
+                <div className="mx-3">
+                  <Separator />
+                </div>
               </Fragment>
             )
           })}
           <SignedOut>
-            <li>
+            <li className="cursor-pointer">
               <SignInButton>
                 <NavItem link="/sign-up" />
               </SignInButton>
@@ -77,7 +79,7 @@ const NavBar: Component = () => {
                 <NavItem link="/settings" />
               </Link>
             </li>
-            <li>
+            <li className="cursor-pointer">
               <SignOutButton redirectUrl="/">
                 <NavItem link="/sign-out" />
               </SignOutButton>
