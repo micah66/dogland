@@ -68,7 +68,7 @@ const NavBar: Component = () => {
           })}
           <SignedOut>
             <li className="cursor-pointer">
-              <SignInButton>
+              <SignInButton signUpForceRedirectUrl="/new-user">
                 <NavItem link="/sign-up" />
               </SignInButton>
             </li>
