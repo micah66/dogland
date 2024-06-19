@@ -27,7 +27,7 @@ export default function RootLayout({
         <body className={roboto.className}>
           <div className="flex h-screen w-screen">
             <NavBar />
-            <div className="content grow">{children}</div>
+            <div className="content grow p-6">{children}</div>
           </div>
         </body>
       </html>
