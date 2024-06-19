@@ -21,6 +21,7 @@ const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
         'disabled:text-gray-500',
         'disabled:border-gray-500',
       ],
+      ghost: ['border-none bg-transparent'],
     },
     size: {
       small: ['gap-1', 'rounded', 'px-2', 'py-1', 'text-xs', 'leading-3'],
@@ -59,6 +60,11 @@ const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
       className: 'text-blue-500 border-blue-500',
     },
     {
+      usage: 'primary',
+      variant: 'ghost',
+      className: 'text-blue-500 hover:text-blue-600',
+    },
+    {
       usage: 'danger',
       variant: 'filled',
       className: 'bg-red-500 hover:bg-red-600',
@@ -67,6 +73,11 @@ const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
       usage: 'danger',
       variant: 'outlined',
       className: 'text-red-500 border-red-500',
+    },
+    {
+      usage: 'danger',
+      variant: 'ghost',
+      className: 'text-red-500 hover:text-red-600',
     },
     {
       usage: 'success',
@@ -78,6 +89,11 @@ const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
       variant: 'outlined',
       className: 'text-green-500 border-green-500',
     },
+    {
+      usage: 'success',
+      variant: 'ghost',
+      className: 'text-green-500 hover:text-green-600',
+    },
   ],
   defaultVariants: {
     usage: 'primary',
@@ -87,7 +103,7 @@ const button = cva('flex items-center border-2 disabled:cursor-not-allowed', {
   },
 })
 
-interface ButtonProps
+export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {
   startIcon: ReactElement<IconComponent>
