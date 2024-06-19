@@ -1,13 +1,7 @@
 import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  SignInButton,
-  SignOutButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
+import { SignInButton, SignOutButton, SignedIn, SignedOut } from '@clerk/nextjs'
 
 import Icons from './shared/Icon'
 import NavItem from './NavItem'
@@ -68,7 +62,7 @@ const NavBar: Component = () => {
           })}
           <SignedOut>
             <li className="cursor-pointer">
-              <SignInButton signUpForceRedirectUrl="/new-user">
+              <SignInButton signUpForceRedirectUrl="/new-user" mode="modal">
                 <NavItem link="/sign-up" />
               </SignInButton>
             </li>
