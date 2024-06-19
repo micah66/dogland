@@ -37,10 +37,11 @@ model Address {
   updatedAt DateTime @updatedAt
 
   city String
-  house Int
-  appartment Int
+  street String
+  house String
+  apartment String
 
-  user User[] 
+  user User[]
   userId String
 }
 
