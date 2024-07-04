@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
@@ -11,3 +11,12 @@ export const prisma =
   })
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+export const completeUserSchema = Prisma.validator<Prisma.UserDefaultArgs>()({
+  include: {
+    address: true,
+    dogs: true,
+  },
+})
+
+export type CompleteUser = Prisma.UserGetPayload<typeof completeUserSchema>
