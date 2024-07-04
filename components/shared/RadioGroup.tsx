@@ -47,7 +47,7 @@ RadioGroup.displayName = 'RadioGroup'
 
 interface RadioGroupItemProps
   extends ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
-  children: [ReactNode]
+  children: ReactNode
 }
 
 export function RadioGroupItem({
