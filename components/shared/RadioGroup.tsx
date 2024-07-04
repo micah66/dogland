@@ -1,6 +1,12 @@
 'use client'
 
-import { ReactNode, ComponentPropsWithoutRef, ReactElement } from 'react'
+import {
+  ReactNode,
+  ComponentPropsWithoutRef,
+  ReactElement,
+  forwardRef,
+  ElementRef,
+} from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import {
   RadioGroup as ShadRadioGroup,
@@ -17,21 +23,27 @@ interface RadioGroupProps
     | ReactElement<RadioGroupItemProps>[]
 }
 
-export function RadioGroup({
-  col = false,
-  children,
-  className,
-  ...radioGroupProps
-}: RadioGroupProps) {
-  return (
-    <ShadRadioGroup
-      {...radioGroupProps}
-      className={cn('flex flex-wrap gap-6', col && 'flex-col', className)}
-    >
-      {children}
-    </ShadRadioGroup>
-  )
-}
+export const RadioGroup = forwardRef<
+  ElementRef<typeof ShadRadioGroup>,
+  RadioGroupProps
+>(
+  (
+    { col = false, children, className, ...radioGroupProps }: RadioGroupProps,
+    ref,
+  ) => {
+    return (
+      <ShadRadioGroup
+        {...radioGroupProps}
+        className={cn('flex flex-wrap gap-6', col && 'flex-col', className)}
+        ref={ref}
+      >
+        {children}
+      </ShadRadioGroup>
+    )
+  },
+)
+
+RadioGroup.displayName = 'RadioGroup'
 
 interface RadioGroupItemProps
   extends ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
