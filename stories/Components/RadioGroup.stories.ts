@@ -7,6 +7,11 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    col: {
+      control: 'boolean',
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof RadioGroup>
 
