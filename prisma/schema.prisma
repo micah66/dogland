@@ -42,7 +42,6 @@ model Address {
   apartment String
 
   user User[]
-  userId String
 }
 
 model Dog {
