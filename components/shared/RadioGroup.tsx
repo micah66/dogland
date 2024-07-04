@@ -63,7 +63,7 @@ export function RadioGroupItem({
         id={id}
         value={value}
         {...radioProps}
-        className={cn('peer h-6 w-6 border-2 text-blue-500')}
+        className={cn('peer h-4 w-4 border-2 text-blue-500', className)}
       />
       <Label
         htmlFor={id}
