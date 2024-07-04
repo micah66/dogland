@@ -1,11 +1,10 @@
 import { prisma } from './db'
 import { auth } from '@clerk/nextjs/server'
-import type { Address, User } from '@prisma/client'
-
-type Selectables = Record<keyof User, boolean>
+import type { Prisma } from '@prisma/client'
+import { DefaultArgs } from '@prisma/client/runtime/library'
 
 export const getLoggedInUser = async (
-  select: Partial<Selectables> = { id: true },
+  select: Prisma.UserSelect<DefaultArgs> = { id: true },
 ) => {
   const { userId } = auth()
 
@@ -16,14 +15,5 @@ export const getLoggedInUser = async (
     select,
   })
 
-  let address: Address | null = null
-  if (user?.addressId && select.addressId) {
-    address = await prisma.address.findUnique({
-      where: {
-        id: user.addressId,
-      },
-    })
-  }
-
-  return { ...user, ...address }
+  return user
 }
