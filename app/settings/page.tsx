@@ -8,7 +8,8 @@ const SettingsPage: Component = async () => {
     last_name: true,
     email: true,
     phone: true,
-    addressId: true,
+    address: true,
+    dogs: true,
   })
 
   return <SettingsForm {...user} />
