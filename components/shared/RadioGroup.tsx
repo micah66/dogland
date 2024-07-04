@@ -67,7 +67,7 @@ export function RadioGroupItem({
       />
       <Label
         htmlFor={id}
-        className="cursor-pointer pl-2 text-base leading-5 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        className="text-small cursor-pointer pl-2 capitalize leading-[14px] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
       >
         {children}
       </Label>
