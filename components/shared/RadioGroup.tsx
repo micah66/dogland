@@ -45,7 +45,7 @@ export const RadioGroup = forwardRef<
 
 RadioGroup.displayName = 'RadioGroup'
 
-interface RadioGroupItemProps
+export interface RadioGroupItemProps
   extends ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
   children: ReactNode
 }
